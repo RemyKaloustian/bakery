@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from 'react-redux';
 import FoodItem from './FoodItem'
 import { Link } from 'react-router-dom'
+import debug from '../utils/debug';
 
 class Home extends React.Component {
 
   render() {
-    console.log(this.props);
+    debug.log('Starting props', this.props);
     return (
       <div className="shopping-list">
         <Link to="/cart">Cart</Link>

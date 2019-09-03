@@ -2,6 +2,8 @@ import React from "react";
 import { withRouter } from 'react-router-dom';
 import { addToCart } from '../actions/actions';
 import { connect } from 'react-redux';
+import debug from '../utils/debug';
+import { getDisplayName } from '../utils/display';
 
 class FoodItem extends React.Component {
 
@@ -9,7 +11,7 @@ class FoodItem extends React.Component {
     return (
       <div>
         <p onClick={()=>{this.onClick()}}>
-          {this.getDisplayName(this.props.name)}
+          {getDisplayName(this.props.name)}
         </p>
         <button onClick={()=>{this.addItemToCart()}}>Add to Cart</button>
       </div>
@@ -21,13 +23,8 @@ class FoodItem extends React.Component {
   }
 
   onClick(){
-    console.log(this.props);
-    console.log("Clicked "+ this.props.name);
+    debug.log('food selected', this.props.name);
     this.props.history.push(`/food/${this.props.name}`);
-  }
-
-  getDisplayName(name){
-    return name.replace(/-/g, " ");
   }
 }//class
 

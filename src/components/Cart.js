@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from 'react-redux';
 import CartItem from "./CartItem";
+import debug from '../utils/debug';
 
 class Cart extends React.Component {
   render() {
-    let CART = this.props.cart;
-    console.log(CART);
+    debug.log('Cart loaded', this.props.cart);
     return (
       <div className="shopping-list">
         Cart

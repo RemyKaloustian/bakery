@@ -1,6 +1,7 @@
 import React from "react";
 import { removeFromCart } from '../actions/actions';
 import { connect } from 'react-redux';
+import { getDisplayName } from '../utils/display';
 
 class CartItem extends React.Component {
 
@@ -16,7 +17,7 @@ class CartItem extends React.Component {
       <div>
         {this.state.isDisplayed > 0 &&
           <div>
-            {this.getDisplayName(this.props.name)}
+            {getDisplayName(this.props.name)}
             <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
           </div>
         }
@@ -27,10 +28,6 @@ class CartItem extends React.Component {
   removeItemFromCart(){
     this.setState({isDisplayed: false});
     this.props.removeFromCart(this.props.name);
-  }
-
-  getDisplayName(name){
-    return name.replace(/-/g, " ");
   }
 }//class
 

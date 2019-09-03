@@ -1,6 +1,6 @@
 // reducers.js
 import {  combineReducers,} from 'redux';
-
+import debug from '../utils/debug';
 //temporary, will be placed in a config file
 const foodItems = [
   'croissant', 
@@ -12,7 +12,7 @@ const foodItems = [
 export const foodReducer = (state = foodItems, action) => {
   switch (action.type) {
     case 'GET_FOOD':
-      console.log("In foodReducer, GET_FOOD");
+      debug.log('In foodReducer','GET_FOOD');
       return [...state, "yolo"];
     default:
       return state;
@@ -23,10 +23,10 @@ export const foodReducer = (state = foodItems, action) => {
 export const cartReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
-      console.log("In cartReducer, ADD_TO_CART "+ action.item);
+      debug.log('In cartReducer, ADD_TO_CART ', action.item);
       return [...state, action.item];
     case 'REMOVE_FROM_CART':
-      console.log("Removing " + action.item);
+      debug.log('Removing' , action.item);
       return state.filter(e => e !== action.item);
     default:
       return state;
