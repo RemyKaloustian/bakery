@@ -2,32 +2,32 @@ import React from "react";
 import { removeFromCart } from '../actions/actions';
 import { connect } from 'react-redux';
 import { getDisplayName } from '../utils/display';
+import  debug  from '../utils/debug';
 
 class CartItem extends React.Component {
-
-  constructor(){
-    super()
-      this.state = {
-        isDisplayed: true,
-      }
-  }
-
+  
   render() {
+    debug.log('Cartitem.render, isRemoved = ', this.props.isRemoved);
     return (
       <div>
-        {this.state.isDisplayed > 0 &&
-          <div>
-            {getDisplayName(this.props.name)}
-            <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
-          </div>
+        {this.props.isRemoved ? 
+        <div>
+          <p>{this.props.name} removed, </p>
+          <button>Undo?</button>
+        </div>
+        : 
+        <div>
+          {getDisplayName(this.props.name)}
+          <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
+        </div>
         }
       </div>
     );
   }//render
 
-  removeItemFromCart(){
-    this.setState({isDisplayed: false});
-    this.props.removeFromCart(this.props.name);
+   removeItemFromCart= () => {
+    debug.log('in CartItem, Removing', this.props.name);
+    this.props.removeFromCart(this.props.name); 
   }
 }//class
 

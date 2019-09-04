@@ -9,8 +9,9 @@ class Cart extends React.Component {
     return (
       <div className="shopping-list">
         Cart
-        {this.props.cart.map(function(name, index){
-          return <CartItem name={name}/>;
+        {this.props.cart.map(function(item, index){
+          debug.log('Creating a Cartitem for ', item.name);
+          return <CartItem name={item.name} isRemoved={item.isRemoved}/>;
         })}
       </div>
     );

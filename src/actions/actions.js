@@ -11,4 +11,9 @@ export const removeFromCart =(item) => ({
   type: 'REMOVE_FROM_CART',
   item,
 })
+
+export const resetCartReducer =() => ({
+  type: 'RESET_CART_REDUCER',
+})
+  
   
