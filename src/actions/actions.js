@@ -7,13 +7,18 @@ export const addToCart = (item) => ({
   item,
 })
 
-export const removeFromCart =(item) => ({
-  type: 'REMOVE_FROM_CART',
+export const toggleRemoveFromCart = (item, isRemoved) => ({
+  type: 'TOGGLE_REMOVE_FROM_CART',
   item,
+  isRemoved,
 })
 
-export const resetCartReducer =() => ({
+export const resetCartReducer = () => ({
   type: 'RESET_CART_REDUCER',
+})
+
+export const cleanRemovedItems = () => ({
+  type: 'CLEAN_REMOVED_ITEMS',
 })
   
   

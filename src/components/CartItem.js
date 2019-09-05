@@ -1,19 +1,17 @@
 import React from "react";
-import { removeFromCart } from '../actions/actions';
+import { toggleRemoveFromCart } from '../actions/actions';
 import { connect } from 'react-redux';
 import { getDisplayName } from '../utils/display';
-import  debug  from '../utils/debug';
 
 class CartItem extends React.Component {
   
   render() {
-    debug.log('Cartitem.render, isRemoved = ', this.props.isRemoved);
     return (
       <div>
         {this.props.isRemoved ? 
         <div>
           <p>{this.props.name} removed, </p>
-          <button>Undo?</button>
+          <button onClick={()=>{this.undoRemoveFromCart()}}>Undo?</button>
         </div>
         : 
         <div>
@@ -25,14 +23,17 @@ class CartItem extends React.Component {
     );
   }//render
 
-   removeItemFromCart= () => {
-    debug.log('in CartItem, Removing', this.props.name);
-    this.props.removeFromCart(this.props.name); 
+   removeItemFromCart = () => {
+    this.props.toggleRemoveFromCart(this.props.name, true); 
+  }
+
+  undoRemoveFromCart = () => {
+    this.props.toggleRemoveFromCart(this.props.name, false);
   }
 }//class
 
 const mapDispatchToProps = {
-  removeFromCart,
+  toggleRemoveFromCart,
 };
 
 export default connect(null,mapDispatchToProps)(CartItem);

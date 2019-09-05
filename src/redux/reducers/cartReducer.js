@@ -7,10 +7,15 @@ const cartReducer = (state = [], action) => {
         //  state = [];
       return addToCart(action.item,state);
 
-    case 'REMOVE_FROM_CART':
+    case 'TOGGLE_REMOVE_FROM_CART':
       debug.log('cartReducer.REMOVE_FROM_CART' , action.item);
       let index = state.findIndex(x => x.name === action.item);
-      return [...state.slice(0,index), {...state[index], isRemoved:true},...state.slice(index+1, state.length)];
+      return [...state.slice(0,index), {...state[index], isRemoved:action.isRemoved},...state.slice(index+1, state.length)];
+
+    case 'CLEAN_REMOVED_ITEMS':
+      let stateWithoutRemovedItems = state.filter(x => x.isRemoved === false);
+      debug.log('clean cart from removed', stateWithoutRemovedItems);
+      return stateWithoutRemovedItems;
 
     case 'RESET_CART_REDUCER':
       state = [];
