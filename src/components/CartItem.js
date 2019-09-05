@@ -1,5 +1,5 @@
 import React from "react";
-import { toggleRemoveFromCart } from '../actions/actions';
+import { toggleRemoveFromCart, changeQuantity} from '../actions/actions';
 import { connect } from 'react-redux';
 import { getDisplayName } from '../utils/display';
 
@@ -16,12 +16,18 @@ class CartItem extends React.Component {
         : 
         <div>
           {getDisplayName(this.props.name)}
+          <button onClick={()=> {this.addQuantity()}}>+</button>
+          <button>-</button>
           <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
         </div>
         }
       </div>
     );
   }//render
+
+  addQuantity = () => {
+    this.props.changeQuantity(this.props.name, 1);
+  }
 
    removeItemFromCart = () => {
     this.props.toggleRemoveFromCart(this.props.name, true); 
@@ -34,6 +40,7 @@ class CartItem extends React.Component {
 
 const mapDispatchToProps = {
   toggleRemoveFromCart,
+  changeQuantity,
 };
 
 export default connect(null,mapDispatchToProps)(CartItem);

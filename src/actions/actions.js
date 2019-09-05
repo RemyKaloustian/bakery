@@ -13,6 +13,12 @@ export const toggleRemoveFromCart = (item, isRemoved) => ({
   isRemoved,
 })
 
+export const changeQuantity = (item, additionalQuantity) => ({
+  type: 'CHANGE_QUANTITY', 
+  item,
+  additionalQuantity,
+})
+
 export const resetCartReducer = () => ({
   type: 'RESET_CART_REDUCER',
 })
