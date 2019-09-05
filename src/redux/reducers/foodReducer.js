@@ -1,4 +1,3 @@
-import debug from '../../utils/debug';
 
 //temporary, will have its own file
 const foodItems = [
@@ -9,9 +8,6 @@ const foodItems = [
 
 const foodReducer = (state = foodItems, action) => {
   switch (action.type) {
-    case 'GET_FOOD':
-      debug.log('In foodReducer','GET_FOOD');
-      return [...state, "yolo"];
     default:
       return state;
   }
