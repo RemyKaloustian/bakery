@@ -22,7 +22,7 @@ class Cart extends React.Component {
       <div className="shopping-list">
         Cart
         {this.props.cart.map(function(item, index){
-          return <CartItem name={item.name} isRemoved={item.isRemoved}/>;
+          return <CartItem {...item}/>;
         })}
       </div>
     );

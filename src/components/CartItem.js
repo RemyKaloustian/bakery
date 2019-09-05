@@ -15,9 +15,9 @@ class CartItem extends React.Component {
         </div>
         : 
         <div>
-          {getDisplayName(this.props.name)}
-          <button onClick={()=> {this.addQuantity()}}>+</button>
-          <button>-</button>
+          {getDisplayName(this.props.name)} : {this.props.qty}
+          <button onClick={()=> {this.changeQuantity(1)}}>+</button>
+          <button onClick={()=> {this.changeQuantity(-1)}}>-</button>
           <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
         </div>
         }
@@ -25,8 +25,13 @@ class CartItem extends React.Component {
     );
   }//render
 
-  addQuantity = () => {
-    this.props.changeQuantity(this.props.name, 1);
+  changeQuantity = (additionalQty) => {
+    if(this.props.qty + additionalQty <= 0){
+      this.props.toggleRemoveFromCart(this.props.name, true); 
+    }
+    else{
+      this.props.changeQuantity(this.props.name, additionalQty);
+    }
   }
 
    removeItemFromCart = () => {
