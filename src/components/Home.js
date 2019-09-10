@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import FoodItem from './FoodItem'
-import { Link } from 'react-router-dom'
+import FoodItem from './FoodItem';
+import NavbarMenu from './NavbarMenu';
 import debug from '../utils/debug';
 
 class Home extends React.Component {
@@ -9,8 +9,8 @@ class Home extends React.Component {
   render() {
     debug.log('Starting props', this.props);
     return (
-      <div className="shopping-list">
-        <Link to="/cart">Cart</Link>
+      <div>
+        <NavbarMenu/>
         {this.props.food.map(function(name, index){
           return <FoodItem name={name}/>;
         })}

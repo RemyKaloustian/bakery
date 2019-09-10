@@ -3,7 +3,8 @@ import {
   TOGGLE_REMOVE_FROM_CART,
   CHANGE_QUANTITY,
   RESET_CART_REDUCER,
-  CLEAN_REMOVED_ITEMS
+  CLEAN_REMOVED_ITEMS,
+  ADD_ADDRESS,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -29,6 +30,11 @@ export const resetCartReducer = () => ({
 
 export const cleanRemovedItems = () => ({
   type: CLEAN_REMOVED_ITEMS,
+})
+
+export const addAddress = (address) => ({
+  type: ADD_ADDRESS,
+  address,
 })
   
   
