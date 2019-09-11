@@ -5,6 +5,9 @@ import {
   RESET_CART_REDUCER,
   CLEAN_REMOVED_ITEMS,
   ADD_ADDRESS,
+  ADD_ADDRESS_TO_ORDER,
+  RESET_CURRENT_ORDER,
+  REMOVE_ADDRESS_FROM_ORDER,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -36,5 +39,18 @@ export const addAddress = (address) => ({
   type: ADD_ADDRESS,
   address,
 })
+
+export const addAddressToOrder = (address) => ({
+  type: ADD_ADDRESS_TO_ORDER,
+  address,
+})
+
+export const resetCurrentOrder = () => ({
+  type: RESET_CURRENT_ORDER,
+})
   
+export const removeAddressFromOrder = (address) => ({
+  type: REMOVE_ADDRESS_FROM_ORDER,
+  address, 
+})
   

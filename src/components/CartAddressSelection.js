@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import debug from "../utils/debug";
 import CartAddress from "./CartAddress";
-import { Link } from 'react-router-dom';
+import CartAddNewAddress from "./CartAddNewAddress";
 
 class CartAddressSelection extends React.Component {
 
@@ -18,7 +18,7 @@ class CartAddressSelection extends React.Component {
         :
         <p>No adresses available</p>
         }
-        <Link to="/address" params={{ testvalue: "hello" }}>Add address</Link>
+        <CartAddNewAddress/>
       </div>
     );
   }

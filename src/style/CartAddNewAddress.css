@@ -1,0 +1,20 @@
+button{
+    color: blue;
+}
+
+.new_address_modal{
+    border: 1px solid black;
+    width: 50%;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: dimgrey;
+}
+
+#new_address_modal_visible{
+    display: block;
+}
+#new_address_modal_hidden{
+    display: none;
+}
