@@ -5,9 +5,6 @@ import {
   RESET_CART_REDUCER,
   CLEAN_REMOVED_ITEMS,
   ADD_ADDRESS,
-  SELECT_ADDRESS_FOR_ORDER,
-  RESET_CURRENT_ORDER,
-  REMOVE_ADDRESS_FROM_ORDER,
   TOGGLE_ADDRESS_SELECTION_IN_ORDER,
 } from './constants';
 
@@ -41,24 +38,8 @@ export const addAddress = (address) => ({
   address,
 })
 
-export const selectAddressForOrder = (address) => ({
-  type: SELECT_ADDRESS_FOR_ORDER,
-  address,
-})
-
-
-export const removeAddressFromOrder = (address) => ({
-  type: REMOVE_ADDRESS_FROM_ORDER,
-  address, 
-})
-
 export const toggleAddressSelectionInOrder = (address, isSelected) => ({
   type: TOGGLE_ADDRESS_SELECTION_IN_ORDER,
   address,
   isSelected,
-})
-
-export const resetCurrentOrder = (cart) => ({
-  type: RESET_CURRENT_ORDER,
-  cart,
 })

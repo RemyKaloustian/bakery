@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import debug from "../utils/debug";
-import { selectAddressForOrder, removeAddressFromOrder, toggleAddressSelectionInOrder } from "../actions/actions";
+import { toggleAddressSelectionInOrder } from "../actions/actions";
 
 class CartAddress extends React.Component {
 
@@ -38,8 +38,6 @@ class CartAddress extends React.Component {
 
 
 const mapDispatchToProps = {
-  selectAddressForOrder,
-  removeAddressFromOrder,
   toggleAddressSelectionInOrder,
 };
   

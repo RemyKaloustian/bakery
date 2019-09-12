@@ -1,4 +1,4 @@
-import { ADD_ADDRESS, SELECT_ADDRESS_FOR_ORDER, REMOVE_ADDRESS_FROM_ORDER, TOGGLE_ADDRESS_SELECTION_IN_ORDER } from "../../actions/constants";
+import { ADD_ADDRESS, TOGGLE_ADDRESS_SELECTION_IN_ORDER } from "../../actions/constants";
 import debug from "../../utils/debug";
 //temporary, will have its own file
 const addresses = [
@@ -12,21 +12,7 @@ const addresses = [
     switch (action.type) {
       case ADD_ADDRESS:
         debug.log('Adding an address in reducer', action.address);
-        return [...state, action.address];
-
-      case SELECT_ADDRESS_FOR_ORDER:
-        debug.log('SELECT_ADDRESS_FOR_ORDER', action.address);
-        itemIndex = state.findIndex(x => x.address === action.address);
-        return [...state.slice(0,itemIndex), 
-                {...state[itemIndex], isSelected: true},
-                ...state.slice(itemIndex+1, state.length)];
-
-      case REMOVE_ADDRESS_FROM_ORDER:
-        debug.log(REMOVE_ADDRESS_FROM_ORDER, action.address);
-        itemIndex = state.findIndex(x => x.address === action.address);
-        return [...state.slice(0,itemIndex), 
-                {...state[itemIndex], isSelected: false},
-                ...state.slice(itemIndex+1, state.length)];
+        return [...state, createAddress(action.address)];
 
       case TOGGLE_ADDRESS_SELECTION_IN_ORDER:
           debug.log(TOGGLE_ADDRESS_SELECTION_IN_ORDER, action.address);
@@ -39,5 +25,9 @@ const addresses = [
         return state;
     }
   };
+
+  const createAddress = (address) =>{
+    return { address, isSelected:false };
+  }
   
   export default addressReducer;

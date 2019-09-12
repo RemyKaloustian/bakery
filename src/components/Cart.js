@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from 'react-redux';
 import CartItem from "./CartItem";
-import { cleanRemovedItems, resetCurrentOrder} from '../actions/actions';
+import { cleanRemovedItems } from '../actions/actions';
 import debug from '../utils/debug';
 import NavbarMenu from "./NavbarMenu";
 import CartAddressSelection from "./CartAddressSelection";
+import CartFinalizeOrderModal from "./CartFinalizeOrderModal";
 
 class Cart extends React.Component {
 
@@ -16,7 +17,6 @@ class Cart extends React.Component {
   render() {
     if(!this.state.hasRenderedOnce){
       this.props.cleanRemovedItems();
-      this.props.resetCurrentOrder(this.props.cart);
       this.setState({ hasRenderedOnce: true });
     }
 
@@ -34,6 +34,7 @@ class Cart extends React.Component {
         <div>
           <button>Validate</button>
         </div>
+        <CartFinalizeOrderModal/>
       </div>
     );
   }
@@ -47,7 +48,6 @@ function mapStateToProps(state){
 
 const mapDispatchToProps = {
   cleanRemovedItems,
-  resetCurrentOrder,
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

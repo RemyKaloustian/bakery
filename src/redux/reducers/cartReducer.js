@@ -41,6 +41,8 @@ const cartReducer = (state = [], action) => {
   }
 };
 
+//TODO: Put these functions in their own helper file
+
 const createItem = (name) => {
   return {  name,
             qty: 1, 
