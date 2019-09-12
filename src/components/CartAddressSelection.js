@@ -13,7 +13,7 @@ class CartAddressSelection extends React.Component {
         Select Address
         {this.props.addresses.length > 0 ?
           this.props.addresses.map(function(item, index){
-            return <CartAddress address={item}/>;
+            return <CartAddress {...item}/>;
           })
         :
         <p>No adresses available</p>

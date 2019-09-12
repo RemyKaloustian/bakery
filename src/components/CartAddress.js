@@ -1,20 +1,20 @@
 import React from "react";
 import { connect } from 'react-redux';
 import debug from "../utils/debug";
-import { addAddressToOrder, removeAddressFromOrder } from "../actions/actions";
+import { selectAddressForOrder, removeAddressFromOrder, toggleAddressSelectionInOrder } from "../actions/actions";
 
 class CartAddress extends React.Component {
 
-  constructor(){
-    super();
-    this.state = {isChecked: false};
+  constructor(props){
+    super(props);
+    this.state = {isChecked: this.props.isSelected};
   }
 
   render() {
     debug.log('addresses in cart selection', this.props);
     return (
       <div>
-        <input type="checkbox" onChange={() => this.toggleAddressPresence()}/> 
+        <input checked={this.state.isChecked} type="checkbox" onChange={() => this.toggleAddressPresence()}/> 
        {this.props.address}
       </div>
     );
@@ -25,10 +25,12 @@ class CartAddress extends React.Component {
     this.setState({ isChecked: newIsChecked}, ()=>{
       debug.log('in cartaddress', this.state.isChecked);
       if(this.state.isChecked){
-        this.props.addAddressToOrder(this.props.address);
+        // this.props.selectAddressForOrder(this.props.address);
+        this.props.toggleAddressSelectionInOrder(this.props.address, this.state.isChecked);
       }
       else{
-        this.props.removeAddressFromOrder(this.props.address);
+        // this.props.removeAddressFromOrder(this.props.address);
+        this.props.toggleAddressSelectionInOrder(this.props.address, this.state.isChecked);
       }
     });
   }
@@ -36,8 +38,9 @@ class CartAddress extends React.Component {
 
 
 const mapDispatchToProps = {
-  addAddressToOrder,
+  selectAddressForOrder,
   removeAddressFromOrder,
+  toggleAddressSelectionInOrder,
 };
   
 

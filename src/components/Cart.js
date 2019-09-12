@@ -16,7 +16,7 @@ class Cart extends React.Component {
   render() {
     if(!this.state.hasRenderedOnce){
       this.props.cleanRemovedItems();
-      this.props.resetCurrentOrder();
+      this.props.resetCurrentOrder(this.props.cart);
       this.setState({ hasRenderedOnce: true });
     }
 
