@@ -22,11 +22,12 @@ class CartAddNewAddress extends React.Component {
       <div>
         <button onClick={()=> this.toggleModalVisibility()}>Add new address</button>
         <div id={this.state.currentModalVisibility} className="new_address_modal">
-            <p>New address</p>
-            <input placeholder="address" 
+          <p>New address</p>
+          <input placeholder="address" 
             value = {this.state.address}
             onChange={(e)=>{this.updateAddress(e)}}/>
-            <button onClick={()=> this.addAddress()}>Validate</button>
+          <button onClick={()=> this.addAddress()}>Validate</button>
+          <button onClick={()=> this.closeModal()}>Cancel</button>
         </div>
       </div>
     );
@@ -43,7 +44,13 @@ class CartAddNewAddress extends React.Component {
   }
 
   addAddress = () => {
-    this.props.addAddress(this.state.address);
+    if(this.state.address.trim().length > 5){
+      this.props.addAddress(this.state.address);
+      this.closeModal();
+    }
+  }
+
+  closeModal = () => {
     this.setState({ address: ''});
     this.toggleModalVisibility();
   }
