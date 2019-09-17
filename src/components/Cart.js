@@ -26,9 +26,13 @@ class Cart extends React.Component {
       <NavbarMenu/>
         <div>
           Cart
-          {this.props.cart.map(function(item, index){
-            return <CartItem {...item}/>;
-          })}
+          {this.props.cart.length > 0 ?
+            this.props.cart.map(function(item, index){
+            return <CartItem {...item}/>
+          })
+          :
+            <p>Your cart is empty :(</p>
+          }
         </div>
           <CartAddressSelection/>
         <div>
