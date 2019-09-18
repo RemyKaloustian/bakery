@@ -16,11 +16,12 @@ const modalsItems = [
       case TOGGLE_MODAL_VISIBILITY :
         debug.log('in modals reducer', TOGGLE_MODAL_VISIBILITY);
         itemIndex = state.findIndex(x=> x.id === action.modalId);
-        const newVisiblility = toNewDisplayClass(state[itemIndex].displayClass);
-
+        const newDisplayClass = toNewDisplayClass(state[itemIndex].displayClass);
+        
         return [...state.slice(0,itemIndex), 
-          {...state[itemIndex], displayClass:newVisiblility},
+          {...state[itemIndex], displayClass: newDisplayClass},
           ...state.slice(itemIndex+1, state.length)];
+
       default:
         return state;
     }
