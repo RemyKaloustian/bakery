@@ -6,6 +6,7 @@ import {
   CLEAN_REMOVED_ITEMS,
   ADD_ADDRESS,
   TOGGLE_ADDRESS_SELECTION_IN_ORDER,
+  TOGGLE_MODAL_VISIBILITY,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -42,4 +43,9 @@ export const toggleAddressSelectionInOrder = (address, isSelected) => ({
   type: TOGGLE_ADDRESS_SELECTION_IN_ORDER,
   address,
   isSelected,
+})
+
+export const toggleModalVisibility = (modalId) => ({
+  type: TOGGLE_MODAL_VISIBILITY,
+  modalId,
 })

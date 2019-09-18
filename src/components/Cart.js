@@ -34,10 +34,7 @@ class Cart extends React.Component {
             <p>Your cart is empty :(</p>
           }
         </div>
-          <CartAddressSelection/>
-        <div>
-          <button>Validate</button>
-        </div>
+        <CartAddressSelection/>
         <CartFinalizeOrderModal/>
       </div>
     );
@@ -47,6 +44,7 @@ class Cart extends React.Component {
 function mapStateToProps(state){
   return {
     cart: state.cartReducer,
+    addresses: state.addressReducer,
   };
 }
 
