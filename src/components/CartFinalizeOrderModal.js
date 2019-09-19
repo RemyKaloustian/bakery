@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import debug from '../utils/debug';
-import { toggleModalVisibility } from '../actions/actions';
+import { toggleModalVisibility, addOrder } from '../actions/actions';
 import { CART_FINALIZE_ORDER_MODAL } from "../utils/modalsConstants";
 import '../style/modals.css';
 
@@ -16,20 +17,32 @@ class CartFinalizeOrderModal extends React.Component {
           Order summary
           <div>
               Order content:
-              {this.displayItems()}
+              {this.props.cart.map(function(item, index){
+                return item.isRemoved ? null : <p>{item.name}</p>;
+              })}
           </div>
           <div>
               The order will go to:
-              {this.displayAddresses()}
+              { this.props.addresses.map(function(item, index){
+                return item.isSelected ? <p>{item.address}</p> : null;
+              })}
           </div>
           <button onClick={()=> this.closeModal()}>
             Edit order
           </button>
-          <button 
-            disabled={!((this.props.cart.find(x=>x.isRemoved === false) !== undefined) && 
-            (this.props.addresses.find(x=>x.isSelected) !== undefined))}>
-            Validate order
-          </button>
+          <Route render={({ history}) => (
+            <button
+              disabled={!((this.props.cart.find(x=>x.isRemoved === false) !== undefined) && 
+              (this.props.addresses.find(x=>x.isSelected) !== undefined))}
+
+              onClick={() => { this.validateOrder(); history.push({
+                pathname: '/orders',
+                state: { hasNewOrder: true }}) 
+                }}
+            >
+              Validate order
+            </button>
+            )} />          
         </div>
         <div>
           <button onClick={()=> this.props.toggleModalVisibility(this.modalId)}>
@@ -40,20 +53,16 @@ class CartFinalizeOrderModal extends React.Component {
     );
   }
 
-  displayItems = () => {
-    this.props.cart.map(function(item, index){
-      return item.isRemoved ? null : <p>{item.name}</p>;
-    });
-  }
-
-  displayAddresses= () => {
-    this.props.addresses.map(function(item, index){
-      return item.isSelected ? <p>{item.address}</p> : null;
-    });
+  validateOrder = () => {
+    this.closeModal();
+    this.props.addOrder(
+      this.props.cart.filter(x=>x.isRemoved === false),
+      this.props.addresses.filter(x=>x.isSelected === true)
+    );
   }
 
   closeModal = () => {
-      this.props.toggleModalVisibility(this.modalId);
+    this.props.toggleModalVisibility(this.modalId);
   }
 }//class
 
@@ -65,10 +74,10 @@ function mapStateToProps(state){
     modals: state.modalsReducer,
   };
 }
-
   
 const mapDispatchToProps = {
   toggleModalVisibility,
+  addOrder,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartFinalizeOrderModal);

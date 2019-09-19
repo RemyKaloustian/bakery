@@ -7,6 +7,7 @@ import {
   ADD_ADDRESS,
   TOGGLE_ADDRESS_SELECTION_IN_ORDER,
   TOGGLE_MODAL_VISIBILITY,
+  ADD_ORDER,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -48,4 +49,10 @@ export const toggleAddressSelectionInOrder = (address, isSelected) => ({
 export const toggleModalVisibility = (modalId) => ({
   type: TOGGLE_MODAL_VISIBILITY,
   modalId,
+})
+
+export const addOrder= (items, addresses) => ({
+  type: ADD_ORDER,
+  items,
+  addresses,
 })

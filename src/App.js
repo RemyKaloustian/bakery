@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Cart from "./components/Cart";
 import Food from "./components/Food";
 import AddressPage from './components/AddressPage';
+import OrdersPage from './components/OrdersPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/cart/" render={(props) => <Cart />} />
         <Route path="/food/:id" render={(props) => <Food /> } />
         <Route path="/address/" render={(props) => <AddressPage />} />
+        <Route path="/orders/" render={(props) => <OrdersPage />} />
       </Router>
     </div>
   );
