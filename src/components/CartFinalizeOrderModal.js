@@ -16,7 +16,7 @@ class CartFinalizeOrderModal extends React.Component {
           <div>
               Order content:
               {this.props.cart.map(function(item, index){
-                return item.isRemoved ? null : <p>{item.name}</p>;
+                return item.isRemoved ? null : <p>{item.name}: {item.qty}</p>;
               })}
           </div>
           <div>
