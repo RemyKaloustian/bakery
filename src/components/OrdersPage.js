@@ -1,14 +1,12 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import debug from '../utils/debug';
 import Alert from "./Alert";
 import OrderDetail from "./OrderDetails";
 
 class OrdersPage extends React.Component {
     
   render() {
-    debug.log('history in Orderspage', this.props.history);
     return (
       <div>
         Orders sir! {}

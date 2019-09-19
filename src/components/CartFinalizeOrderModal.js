@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import debug from '../utils/debug';
-import { toggleModalVisibility, addOrder } from '../actions/actions';
+import { toggleModalVisibility, addOrder, emptyCart } from '../actions/actions';
 import { CART_FINALIZE_ORDER_MODAL } from "../utils/modalsConstants";
 import '../style/modals.css';
 
@@ -10,7 +9,6 @@ class CartFinalizeOrderModal extends React.Component {
   modalId = CART_FINALIZE_ORDER_MODAL;
  
   render() {
-    debug.log('in CartFinalizeOrderModal', this.props);
     return (
       <div>
         <div className ={`cart_finalize_modal ${this.props.modals.find(x=>x.id === this.modalId).displayClass}`}>
@@ -59,6 +57,7 @@ class CartFinalizeOrderModal extends React.Component {
       this.props.cart.filter(x=>x.isRemoved === false),
       this.props.addresses.filter(x=>x.isSelected === true)
     );
+    this.props.emptyCart();
   }
 
   closeModal = () => {
@@ -78,6 +77,7 @@ function mapStateToProps(state){
 const mapDispatchToProps = {
   toggleModalVisibility,
   addOrder,
+  emptyCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartFinalizeOrderModal);

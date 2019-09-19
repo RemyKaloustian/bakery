@@ -1,12 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import debug from "../utils/debug";
 
 class NavbarMenu extends React.Component {
 
   render() {
-      debug.log('in navbar', this.props.cart);
     return (
       <div >
         <Link to="/">Home</Link>

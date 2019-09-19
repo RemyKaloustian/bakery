@@ -2,12 +2,10 @@ import React from "react";
 import { connect } from 'react-redux';
 import FoodItem from './FoodItem';
 import NavbarMenu from './NavbarMenu';
-import debug from '../utils/debug';
 
 class Home extends React.Component {
 
   render() {
-    debug.log('Starting props', this.props);
     return (
       <div>
         <NavbarMenu/>

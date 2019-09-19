@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux';
-import debug from "../utils/debug";
 import { addAddress } from "../actions/actions";
 class AddressPage extends React.Component {
     constructor(){
@@ -9,7 +8,6 @@ class AddressPage extends React.Component {
     }
 
   render() {
-    debug.log('addresspage props', this.props);
     return (
       <div>
         Add address
@@ -20,7 +18,6 @@ class AddressPage extends React.Component {
   }
 
   updateAddress = (e) => {
-    debug.log('event', e.target.value);
     this.setState({ address: e.target.value});
   }
 

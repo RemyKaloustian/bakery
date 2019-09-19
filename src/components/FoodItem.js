@@ -2,7 +2,6 @@ import React from "react";
 import { withRouter } from 'react-router-dom';
 import { addToCart } from '../actions/actions';
 import { connect } from 'react-redux';
-import debug from '../utils/debug';
 import { getDisplayName } from '../utils/display';
 
 class FoodItem extends React.Component {
@@ -23,7 +22,6 @@ class FoodItem extends React.Component {
   }
 
   onClick(){
-    debug.log('food selected', this.props.name);
     this.props.history.push(`/food/${this.props.name}`);
   }
 }//class

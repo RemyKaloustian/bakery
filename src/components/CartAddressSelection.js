@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from 'react-redux';
-import debug from "../utils/debug";
 import CartAddress from "./CartAddress";
 import CartAddNewAddress from "./CartAddNewAddress";
 
 class CartAddressSelection extends React.Component {
 
   render() {
-    debug.log('addresses in cart selection', this.props);
     return (
       <div>
         Select Address
@@ -25,7 +23,6 @@ class CartAddressSelection extends React.Component {
 }//class
 
 function mapStateToProps(state){
-  debug.log('in cartaddressselection', state);
   return {
     addresses: state.addressReducer,
   };

@@ -4,7 +4,6 @@ import {
   MODAL_VISIBLE_CLASS, 
 } from "../../utils/modalsConstants";
 import { TOGGLE_MODAL_VISIBILITY } from "../../actions/constants";
-import debug from '../../utils/debug';
 
 const modalsItems = [
     { id: CART_FINALIZE_ORDER_MODAL, displayClass: MODAL_HIDDEN_CLASS },
@@ -14,7 +13,6 @@ const modalsItems = [
     let itemIndex = 0;
     switch (action.type) {
       case TOGGLE_MODAL_VISIBILITY :
-        debug.log('in modals reducer', TOGGLE_MODAL_VISIBILITY);
         itemIndex = state.findIndex(x=> x.id === action.modalId);
         const newDisplayClass = toNewDisplayClass(state[itemIndex].displayClass);
         

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux';
-import debug from "../utils/debug";
 import { toggleAddressSelectionInOrder } from "../actions/actions";
 
 class CartAddress extends React.Component {
@@ -11,7 +10,6 @@ class CartAddress extends React.Component {
   }
 
   render() {
-    debug.log('addresses in cart selection', this.props);
     return (
       <div>
         <input checked={this.state.isChecked} type="checkbox" onChange={() => this.toggleAddressPresence()}/> 
@@ -23,13 +21,10 @@ class CartAddress extends React.Component {
   toggleAddressPresence = () => {
     const newIsChecked = this.state.isChecked ? false : true;
     this.setState({ isChecked: newIsChecked}, ()=>{
-      debug.log('in cartaddress', this.state.isChecked);
       if(this.state.isChecked){
-        // this.props.selectAddressForOrder(this.props.address);
         this.props.toggleAddressSelectionInOrder(this.props.address, this.state.isChecked);
       }
       else{
-        // this.props.removeAddressFromOrder(this.props.address);
         this.props.toggleAddressSelectionInOrder(this.props.address, this.state.isChecked);
       }
     });
@@ -41,5 +36,4 @@ const mapDispatchToProps = {
   toggleAddressSelectionInOrder,
 };
   
-
 export default connect(null, mapDispatchToProps)(CartAddress);

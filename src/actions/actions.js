@@ -2,12 +2,12 @@ import {
   ADD_TO_CART,
   TOGGLE_REMOVE_FROM_CART,
   CHANGE_QUANTITY,
-  RESET_CART_REDUCER,
   CLEAN_REMOVED_ITEMS,
   ADD_ADDRESS,
   TOGGLE_ADDRESS_SELECTION_IN_ORDER,
   TOGGLE_MODAL_VISIBILITY,
   ADD_ORDER,
+  EMPTY_CART,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -25,10 +25,6 @@ export const changeQuantity = (item, additionalQuantity) => ({
   type: CHANGE_QUANTITY, 
   item,
   additionalQuantity,
-})
-
-export const resetCartReducer = () => ({
-  type: RESET_CART_REDUCER,
 })
 
 export const cleanRemovedItems = () => ({
@@ -55,4 +51,8 @@ export const addOrder= (items, addresses) => ({
   type: ADD_ORDER,
   items,
   addresses,
+})
+
+export const emptyCart = () => ({
+  type: EMPTY_CART,
 })

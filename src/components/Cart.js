@@ -20,7 +20,6 @@ class Cart extends React.Component {
       this.setState({ hasRenderedOnce: true });
     }
 
-    debug.log('Cart loaded', this.props.cart);
     return (
       <div>
       <NavbarMenu/>
@@ -42,6 +41,7 @@ class Cart extends React.Component {
 }
 
 function mapStateToProps(state){
+  debug.log('all the reducers in the state', state);
   return {
     cart: state.cartReducer,
     addresses: state.addressReducer,

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from 'react-redux';
-import debug from "../utils/debug";
 import { addAddress } from "../actions/actions";
 import '../style/CartAddNewAddress.css';
 
