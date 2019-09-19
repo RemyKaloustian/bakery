@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 class Food extends React.Component {
-    
   render() {
     return (
-      <div className="shopping-list">
+      <div>
         Food {this.props.match.params.id}
       </div>
     );

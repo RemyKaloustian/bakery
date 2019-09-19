@@ -1,5 +1,4 @@
-
-import React from "react";
+import React from 'react';
 
 class Alert extends React.Component {
   constructor(){
@@ -9,7 +8,7 @@ class Alert extends React.Component {
     
   render() {
     return (
-      <div className="alert">
+      <div className='alert'>
       {this.state.isVisible ?
         <div>
           <p>This is an alert, Aint it true brendon?</p>

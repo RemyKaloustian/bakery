@@ -1,14 +1,13 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
-import CartItem from "./CartItem";
+import CartItem from './CartItem';
 import { cleanRemovedItems } from '../actions/actions';
 import debug from '../utils/debug';
-import NavbarMenu from "./NavbarMenu";
-import CartAddressSelection from "./CartAddressSelection";
-import CartFinalizeOrderModal from "./CartFinalizeOrderModal";
+import NavbarMenu from './NavbarMenu';
+import CartAddressSelection from './CartAddressSelection';
+import CartFinalizeOrderModal from './CartFinalizeOrderModal';
 
 class Cart extends React.Component {
-
   constructor(){
     super();
     this.state = { hasRenderedOnce: false };
@@ -19,7 +18,6 @@ class Cart extends React.Component {
       this.props.cleanRemovedItems();
       this.setState({ hasRenderedOnce: true });
     }
-
     return (
       <div>
       <NavbarMenu/>
@@ -27,7 +25,7 @@ class Cart extends React.Component {
           Cart
           {this.props.cart.length > 0 ?
             this.props.cart.map(function(item, index){
-            return <CartItem {...item}/>
+              return <CartItem {...item}/>
           })
           :
             <p>Your cart is empty :(</p>

@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
-import { addAddress } from "../actions/actions";
+import { addAddress } from '../actions/actions';
+import { MIN_ADDRESS_LENGTH } from '../utils/constants';
 import '../style/CartAddNewAddress.css';
 
 class CartAddNewAddress extends React.Component {
@@ -20,9 +21,9 @@ class CartAddNewAddress extends React.Component {
     return (
       <div>
         <button onClick={()=> this.toggleModalVisibility()}>Add new address</button>
-        <div id={this.state.currentModalVisibility} className="new_address_modal">
+        <div id={this.state.currentModalVisibility} className='new_address_modal'>
           <p>New address</p>
-          <input placeholder="address" 
+          <input placeholder='address' 
             value = {this.state.address}
             onChange={(e)=>{this.updateAddress(e)}}/>
           <button onClick={()=> this.addAddress()}>Validate</button>
@@ -43,7 +44,7 @@ class CartAddNewAddress extends React.Component {
   }
 
   addAddress = () => {
-    if(this.state.address.trim().length > 5){
+    if(this.state.address.trim().length > MIN_ADDRESS_LENGTH){
       this.props.addAddress(this.state.address);
       this.closeModal();
     }
@@ -54,7 +55,6 @@ class CartAddNewAddress extends React.Component {
     this.toggleModalVisibility();
   }
 }//class
-
 
 const mapDispatchToProps = {
   addAddress,

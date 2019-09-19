@@ -1,25 +1,24 @@
-import React from "react";
+import React from 'react';
 import { toggleRemoveFromCart, changeQuantity} from '../actions/actions';
 import { connect } from 'react-redux';
 import { getDisplayName } from '../utils/display';
 
 class CartItem extends React.Component {
-  
   render() {
     return (
       <div>
         {this.props.isRemoved ? 
-        <div>
-          <p>{this.props.name} removed, </p>
-          <button onClick={()=>{this.undoRemoveFromCart()}}>Undo?</button>
-        </div>
-        : 
-        <div>
-          {getDisplayName(this.props.name)} : {this.props.qty}
-          <button onClick={()=> {this.changeQuantity(1)}}>+</button>
-          <button onClick={()=> {this.changeQuantity(-1)}}>-</button>
-          <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
-        </div>
+          <div>
+            <p>{this.props.name} removed, </p>
+            <button onClick={()=>{this.undoRemoveFromCart()}}>Undo?</button>
+          </div>
+          : 
+          <div>
+            {getDisplayName(this.props.name)} : {this.props.qty}
+            <button onClick={()=> {this.changeQuantity(1)}}>+</button>
+            <button onClick={()=> {this.changeQuantity(-1)}}>-</button>
+            <button onClick={()=>{this.removeItemFromCart()}}>Remove</button>
+          </div>
         }
       </div>
     );
@@ -34,7 +33,7 @@ class CartItem extends React.Component {
     }
   }
 
-   removeItemFromCart = () => {
+  removeItemFromCart = () => {
     this.props.toggleRemoveFromCart(this.props.name, true); 
   }
 

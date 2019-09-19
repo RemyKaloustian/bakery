@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
-import { addAddress } from "../actions/actions";
+import { addAddress } from '../actions/actions';
+
 class AddressPage extends React.Component {
-    constructor(){
-        super();
-        this.state = { address: ''};
-    }
+  constructor(){
+    super();
+    this.state = { address: ''};
+  }
 
   render() {
     return (
       <div>
         Add address
-        <input placeholder="address" onChange={(e)=>{this.updateAddress(e)}}/>
+        <input placeholder='address' onChange={(e)=>{this.updateAddress(e)}}/>
         <button onClick={()=> this.addAddress()}>Validate</button>
       </div>
     );

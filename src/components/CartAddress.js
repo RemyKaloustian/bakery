@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
-import { toggleAddressSelectionInOrder } from "../actions/actions";
+import { toggleAddressSelectionInOrder } from '../actions/actions';
 
 class CartAddress extends React.Component {
-
   constructor(props){
     super(props);
     this.state = {isChecked: this.props.isSelected};
@@ -12,7 +11,8 @@ class CartAddress extends React.Component {
   render() {
     return (
       <div>
-        <input checked={this.state.isChecked} type="checkbox" onChange={() => this.toggleAddressPresence()}/> 
+        <input checked={this.state.isChecked} type='checkbox' 
+          onChange={() => this.toggleAddressPresence()}/> 
        {this.props.address}
       </div>
     );
@@ -30,7 +30,6 @@ class CartAddress extends React.Component {
     });
   }
 }//class
-
 
 const mapDispatchToProps = {
   toggleAddressSelectionInOrder,

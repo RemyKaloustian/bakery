@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
-import CartAddress from "./CartAddress";
-import CartAddNewAddress from "./CartAddNewAddress";
+import CartAddress from './CartAddress';
+import CartAddNewAddress from './CartAddNewAddress';
 
 class CartAddressSelection extends React.Component {
-
   render() {
     return (
       <div>
