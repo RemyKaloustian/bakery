@@ -1,9 +1,9 @@
 import { 
   CART_FINALIZE_ORDER_MODAL, 
   MODAL_HIDDEN_CLASS,
-  MODAL_VISIBLE_CLASS, 
-} from '../../utils/modalsConstants';
-import { TOGGLE_MODAL_VISIBILITY } from '../../actions/constants';
+} from '../../../utils/modalsConstants';
+import { TOGGLE_MODAL_VISIBILITY } from '../../../actions/constants';
+import { toNewDisplayClass } from './modalsReducerHelper';
 
 const modalsItems = [
     { id: CART_FINALIZE_ORDER_MODAL, displayClass: MODAL_HIDDEN_CLASS },
@@ -24,9 +24,5 @@ const modalsReducer = (state = modalsItems, action) => {
       return state;
   }
 };
-
-  const toNewDisplayClass = (oldDisplayClass) => {
-    return oldDisplayClass === MODAL_HIDDEN_CLASS ? MODAL_VISIBLE_CLASS : MODAL_HIDDEN_CLASS;
-  }
   
-  export default modalsReducer;
+export default modalsReducer;

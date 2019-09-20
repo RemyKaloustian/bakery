@@ -4,8 +4,9 @@ import {
   CHANGE_QUANTITY,
   CLEAN_REMOVED_ITEMS,
   EMPTY_CART,
- } from '../../actions/constants';
- 
+ } from '../../../actions/constants';
+import { addToCart } from './cartReducerHelper';
+
 const cartReducer = (state = [], action) => {
   let itemIndex = 0;
   switch (action.type) {
@@ -33,25 +34,5 @@ const cartReducer = (state = [], action) => {
       return state;
   }
 };
-
-//TODO: Put these functions in their own helper file
-
-const createItem = (name) => {
-  return {  name,
-            qty: 1, 
-            isRemoved:false,
-  };
-}
-
-const addToCart = (itemName, state) => {
-  if (state.some(item=> item.name === itemName)) {
-    let objectToUpdate = state.find(o=>o.name===itemName);
-    objectToUpdate.qty += 1;
-    return state;
-  }
-  else{
-    return [...state, createItem(itemName)];
-  }
-}
 
 export default cartReducer;

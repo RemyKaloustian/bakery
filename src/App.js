@@ -17,6 +17,7 @@ function App() {
         <Route path='/address/' render={(props) => <AddressPage />} />
         <Route path='/orders/' render={(props) => <OrdersPage />} />
       </Router>
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
     </div>
   );
 }

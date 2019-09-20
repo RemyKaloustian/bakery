@@ -1,10 +1,11 @@
-import { ADD_ADDRESS, TOGGLE_ADDRESS_SELECTION_IN_ORDER } from '../../actions/constants';
+import { ADD_ADDRESS, TOGGLE_ADDRESS_SELECTION_IN_ORDER } from '../../../actions/constants';
+import { createAddress } from './addressReducerHelper';
 
 //temporary, will have its own file
 const addresses = [
-    {address:'Home', isSelected: false}, 
-    {address:'Office', isSelected: false},
-    ];
+  {address:'Home', isSelected: false}, 
+  {address:'Office', isSelected: false},
+];
   
 const addressReducer = (state = addresses, action) => {
   let itemIndex = 0;
@@ -22,9 +23,5 @@ const addressReducer = (state = addresses, action) => {
       return state;
   }
 };
-
-const createAddress = (address) =>{
-  return { address, isSelected:false };
-}
   
-  export default addressReducer;
+export default addressReducer;
