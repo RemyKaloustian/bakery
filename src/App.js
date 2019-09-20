@@ -6,8 +6,9 @@ import Cart from './components/Cart';
 import Food from './components/Food';
 import AddressPage from './components/AddressPage';
 import OrdersPage from './components/OrdersPage';
-
+import { fireBaseInitialize } from './database/fireBaseInitialize';
 function App() {
+  fireBaseInitialize();
   return (
     <div className='App'>
       <Router>
@@ -17,7 +18,6 @@ function App() {
         <Route path='/address/' render={(props) => <AddressPage />} />
         <Route path='/orders/' render={(props) => <OrdersPage />} />
       </Router>
-      <script src="https://smtpjs.com/v3/smtp.js"></script>
     </div>
   );
 }

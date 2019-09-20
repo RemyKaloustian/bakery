@@ -38,6 +38,10 @@ class Cart extends React.Component {
   }
 }
 
+//When you want something from the store,
+// use mapStateToProps
+// choose the reducer from which you want to choose
+// select the data (in this case 'food') from the props (see 'render()')
 function mapStateToProps(state){
   debug.log('all the reducers in the state', state);
   return {
