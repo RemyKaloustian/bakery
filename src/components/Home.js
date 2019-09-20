@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import FoodItem from './FoodItem';
 import NavbarMenu from './NavbarMenu';
 import { getFoodItems } from '../database/foodDatabase';
