@@ -1,7 +1,21 @@
-export const getFood = () => {
-  return [
-    'croissant', 
-    'pain-au-chocolat', 
-    'croissant-au-nutella',
-    'brioche'];
+import * as firebase from "firebase/app";
+import "firebase/database";
+
+//Read from db
+
+export const getFoodItems = (setFoodItems) => {
+  const foodItems = [];
+  var query = firebase.database().ref("/foodItems").orderByKey();
+  query.once("value")
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        // key will be "ada" the first time and "alan" the second time
+        var key = childSnapshot.key;
+        // childData will be the actual contents of the child
+        var childData = childSnapshot.val();
+        foodItems.push(childData);
+    });
+    setFoodItems(foodItems);
+  });
+
 }

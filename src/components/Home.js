@@ -2,18 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FoodItem from './FoodItem';
 import NavbarMenu from './NavbarMenu';
-import { getFood } from '../database/foodDatabase';
+import { getFoodItems } from '../database/foodDatabase';
 
 class Home extends React.Component {
+  constructor(){
+    super();
+    this.state = {foodItems: []};
+    getFoodItems(this.setFoodItems);
+  }
+
   render() {
     return (
       <div>
         <NavbarMenu/>
-        {getFood().map(function(name, index){
-          return <FoodItem name={name}/>;
+        {this.state.foodItems.map(function(foodItem, index){
+          return <FoodItem name={foodItem.name}/>;
         })}
       </div>
     );
+  }
+
+  setFoodItems = (foodItems) => {
+    this.setState({foodItems: foodItems});
   }
 }//class
 
