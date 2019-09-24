@@ -1,12 +1,12 @@
 import React from 'react';
 import FoodItem from './FoodItem';
-import NavbarMenu from './NavbarMenu';
-import { getFoodItems } from '../database/foodDatabase';
+import NavbarMenu from '../GeneralComponents/NavbarMenu';
+import { getFoodItems } from '../../database/foodDatabase';
 
 class Home extends React.Component {
   constructor(){
     super();
-    this.state = {foodItems: []};
+    this.state = { foodItems: [] };
     getFoodItems(this.setFoodItems);
   }
 
@@ -22,7 +22,7 @@ class Home extends React.Component {
   }
 
   setFoodItems = (foodItems) => {
-    this.setState({foodItems: foodItems});
+    this.setState({ foodItems: foodItems });
   }
 }//class
 

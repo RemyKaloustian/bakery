@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addAddress } from '../actions/actions';
-import { MIN_ADDRESS_LENGTH } from '../utils/constants';
-import '../style/CartAddNewAddress.css';
+import { addAddress } from '../../actions/actions';
+import { MIN_ADDRESS_LENGTH } from '../../utils/constants';
+import '../../style/CartAddNewAddress.css';
 
 class CartAddNewAddress extends React.Component {
 

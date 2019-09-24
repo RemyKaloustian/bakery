@@ -1,7 +1,7 @@
 import React from 'react';
-import { toggleRemoveFromCart, changeQuantity} from '../actions/actions';
+import { toggleRemoveFromCart, changeQuantity} from '../../actions/actions';
 import { connect } from 'react-redux';
-import { getDisplayName } from '../utils/display';
+import { getDisplayName } from '../../utils/display';
 
 class CartItem extends React.Component {
   render() {

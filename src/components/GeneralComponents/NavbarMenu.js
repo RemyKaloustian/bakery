@@ -9,6 +9,7 @@ class NavbarMenu extends React.Component {
       <div >
         <Link to='/'>Home</Link>
         <Link to='/cart'>Cart({this.props.cart.length})</Link>
+        <Link to='/settings'>Settings</Link>
       </div>
     );
   }

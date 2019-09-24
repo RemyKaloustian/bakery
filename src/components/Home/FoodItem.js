@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { addToCart } from '../actions/actions';
+import { addToCart } from '../../actions/actions';
 import { connect } from 'react-redux';
-import { getDisplayName } from '../utils/display';
+import { getDisplayName } from '../../utils/display';
 
 class FoodItem extends React.Component {
   render() {

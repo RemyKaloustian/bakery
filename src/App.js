@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
-import Cart from './components/Cart';
+import Home from './components/Home/Home';
+import Cart from './components/Cart/Cart';
 import Food from './components/Food';
 import AddressPage from './components/AddressPage';
-import OrdersPage from './components/OrdersPage';
+import OrdersPage from './components/Orders/OrdersPage';
+import SettingsPage from './components/Settings/SettingsPage';
 import { fireBaseInitialize } from './database/fireBaseInitialize';
+
 function App() {
   fireBaseInitialize();
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path='/food/:id' render={(props) => <Food /> } />
         <Route path='/address/' render={(props) => <AddressPage />} />
         <Route path='/orders/' render={(props) => <OrdersPage />} />
+        <Route path='/settings/' render={(props) => <SettingsPage />} />
       </Router>
     </div>
   );

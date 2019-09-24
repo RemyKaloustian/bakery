@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import { toggleModalVisibility, addOrder, emptyCart } from '../actions/actions';
-import { CART_FINALIZE_ORDER_MODAL } from '../utils/modalsConstants';
-import '../style/modals.css';
+import { toggleModalVisibility, addOrder, emptyCart } from '../../actions/actions';
+import { CART_FINALIZE_ORDER_MODAL } from '../../utils/modalsConstants';
+import '../../style/modals.css';
 
 class CartFinalizeOrderModal extends React.Component {
   modalId = CART_FINALIZE_ORDER_MODAL;

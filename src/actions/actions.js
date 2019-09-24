@@ -8,6 +8,7 @@ import {
   TOGGLE_MODAL_VISIBILITY,
   ADD_ORDER,
   EMPTY_CART,
+  UPDATE_ADDRESS,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -55,4 +56,10 @@ export const addOrder= (items, addresses) => ({
 
 export const emptyCart = () => ({
   type: EMPTY_CART,
+})
+
+export const updateAddress = (oldAddress,newAddress) => ({
+  type: UPDATE_ADDRESS,
+  oldAddress,
+  newAddress,
 })

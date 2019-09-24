@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CartItem from './CartItem';
-import { cleanRemovedItems } from '../actions/actions';
-import debug from '../utils/debug';
-import NavbarMenu from './NavbarMenu';
+import { cleanRemovedItems } from '../../actions/actions';
+import debug from '../../utils/debug';
+import NavbarMenu from '../GeneralComponents/NavbarMenu';
 import CartAddressSelection from './CartAddressSelection';
 import CartFinalizeOrderModal from './CartFinalizeOrderModal';
 

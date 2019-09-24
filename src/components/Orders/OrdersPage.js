@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Alert from './Alert';
+import Alert from '../GeneralComponents/Alert';
 import OrderDetail from './OrderDetails';
 
 class OrdersPage extends React.Component {
