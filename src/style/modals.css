@@ -12,3 +12,12 @@
     width: 90%;
     background-color: darkgrey;
 }
+
+.default_modal{
+    background-color: darkgray;
+    display: flex;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    width: 100%;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import AddressSettings from "./AddressSettings";
+import SettingsPageAddressSection from "./SettingsPageAddressSection";
 import NavbarMenu from '../GeneralComponents/NavbarMenu';
 
 class SettingsPage extends React.Component {
@@ -9,7 +9,7 @@ class SettingsPage extends React.Component {
       <div>
       <NavbarMenu/>
         Settings 
-        <AddressSettings/>
+        <SettingsPageAddressSection/>
       </div>
     );
   }

@@ -5,10 +5,13 @@ import {
   CLEAN_REMOVED_ITEMS,
   ADD_ADDRESS,
   TOGGLE_ADDRESS_SELECTION_IN_ORDER,
-  TOGGLE_MODAL_VISIBILITY,
   ADD_ORDER,
   EMPTY_CART,
   UPDATE_ADDRESS,
+  ADD_MODAL,
+  TOGGLE_MODAL,
+  UPDATE_ON_VALIDATE_MODAL,
+  REMOVE_ADDRESS,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -43,11 +46,6 @@ export const toggleAddressSelectionInOrder = (address, isSelected) => ({
   isSelected,
 })
 
-export const toggleModalVisibility = (modalId) => ({
-  type: TOGGLE_MODAL_VISIBILITY,
-  modalId,
-})
-
 export const addOrder= (items, addresses) => ({
   type: ADD_ORDER,
   items,
@@ -62,4 +60,26 @@ export const updateAddress = (oldAddress,newAddress) => ({
   type: UPDATE_ADDRESS,
   oldAddress,
   newAddress,
+})
+
+export const addModal = (modalId) => ({
+  type: ADD_MODAL,
+  modalId,
+})
+
+export const toggleModal = (modalId, isVisible) => ({
+  type: TOGGLE_MODAL,
+  modalId,
+  isVisible,
+})
+
+export const updateOnValidateModal = (modalId, validationObject) => ({
+  type: UPDATE_ON_VALIDATE_MODAL,
+  modalId,
+  validationObject,
+})
+
+export const removeAddress = (address) => ({
+  type: REMOVE_ADDRESS,
+  address,
 })
