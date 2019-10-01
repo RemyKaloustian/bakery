@@ -66,7 +66,7 @@ class CartFinalizeOrderModal extends React.Component {
   }
 }//class
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     cart: state.cartReducer,
     addresses: state.addressReducer,

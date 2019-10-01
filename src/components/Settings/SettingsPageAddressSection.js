@@ -22,7 +22,7 @@ class SettingsPageAddressSection extends React.Component {
   }
 }//class
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
     return {
       addresses: state.addressReducer,
     };

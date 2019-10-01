@@ -19,7 +19,7 @@ class NavbarMenu extends React.Component {
 // use mapStateToProps
 // choose the reducer from which you want to choose
 // select the data (in this case 'food') from the props (see 'render()')
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
     return {
       cart: state.cartReducer,
     };

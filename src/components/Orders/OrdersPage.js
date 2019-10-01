@@ -29,7 +29,7 @@ class OrdersPage extends React.Component {
   }
 }//class
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
     return {
       orders: state.ordersReducer,
     };
