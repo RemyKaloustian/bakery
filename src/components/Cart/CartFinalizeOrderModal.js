@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { addOrder, emptyCart, toggleModal } from '../../actions/actions';
 import { CART_FINALIZE_ORDER_MODAL } from '../../utils/modalsConstants';
+import Modal from '../GeneralComponents/Modal';
 import '../../style/modals.css';
 
 class CartFinalizeOrderModal extends React.Component {
@@ -10,8 +11,12 @@ class CartFinalizeOrderModal extends React.Component {
  
   render() {
     return (
-      <div>
-        <div className ={`cart_finalize_modal ${this.props.modals.find(x=>x.id === this.modalId).displayClass}`}>
+     
+      <div> 
+        <Modal
+          modalId={this.modalId}
+          title={'Finalize order'}
+        >
           Order summary
           <div>
               Order content:
@@ -40,8 +45,8 @@ class CartFinalizeOrderModal extends React.Component {
             >
               Validate order
             </button>
-            )} />          
-        </div>
+            )} /> 
+         </Modal>        
         <div>
           <button onClick={()=> this.props.toggleModal(this.modalId)}>
             Validate
@@ -52,16 +57,12 @@ class CartFinalizeOrderModal extends React.Component {
   }
 
   validateOrder = () => {
-    this.closeModal();
+    this.props.toggleModal(this.modalId);
     this.props.addOrder(
       this.props.cart.filter(x=>x.isRemoved === false),
       this.props.addresses.filter(x=>x.isSelected === true)
     );
     this.props.emptyCart();
-  }
-
-  closeModal = () => {
-    this.props.toggleModal(this.modalId);
   }
 }//class
 

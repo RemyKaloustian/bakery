@@ -3,15 +3,15 @@ import {
   TOGGLE_REMOVE_FROM_CART,
   CHANGE_QUANTITY,
   CLEAN_REMOVED_ITEMS,
-  ADD_ADDRESS,
-  TOGGLE_ADDRESS_SELECTION_IN_ORDER,
-  ADD_ORDER,
   EMPTY_CART,
+  ADD_ORDER,
+  TOGGLE_ADDRESS_SELECTION_IN_ORDER,
+  ADD_ADDRESS,
   UPDATE_ADDRESS,
+  REMOVE_ADDRESS,
   ADD_MODAL,
   TOGGLE_MODAL,
   UPDATE_ON_VALIDATE_MODAL,
-  REMOVE_ADDRESS,
 } from './constants';
 
 export const addToCart = (item) => ({
@@ -31,8 +31,18 @@ export const changeQuantity = (item, additionalQuantity) => ({
   additionalQuantity,
 })
 
+export const emptyCart = () => ({
+  type: EMPTY_CART,
+})
+
 export const cleanRemovedItems = () => ({
   type: CLEAN_REMOVED_ITEMS,
+})
+
+export const addOrder= (items, addresses) => ({
+  type: ADD_ORDER,
+  items,
+  addresses,
 })
 
 export const addAddress = (address) => ({
@@ -46,20 +56,15 @@ export const toggleAddressSelectionInOrder = (address, isSelected) => ({
   isSelected,
 })
 
-export const addOrder= (items, addresses) => ({
-  type: ADD_ORDER,
-  items,
-  addresses,
-})
-
-export const emptyCart = () => ({
-  type: EMPTY_CART,
-})
-
 export const updateAddress = (oldAddress,newAddress) => ({
   type: UPDATE_ADDRESS,
   oldAddress,
   newAddress,
+})
+
+export const removeAddress = (address) => ({
+  type: REMOVE_ADDRESS,
+  address,
 })
 
 export const addModal = (modalId) => ({
@@ -77,9 +82,4 @@ export const updateOnValidateModal = (modalId, validationObject) => ({
   type: UPDATE_ON_VALIDATE_MODAL,
   modalId,
   validationObject,
-})
-
-export const removeAddress = (address) => ({
-  type: REMOVE_ADDRESS,
-  address,
 })

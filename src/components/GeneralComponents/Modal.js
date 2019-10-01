@@ -13,10 +13,9 @@ class Modal extends React.Component {
     if(!this.state.hasInitialized){
       this.checkModalPresenceInReducer();
     }
-    debug.log('Modals, props', this.props);
     return (
       <div>
-        {this.props.modals.find(x=>x.id === this.props.modalId).isVisible ?
+        {this.state.hasInitialized && this.props.modals.find(x=>x.id === this.props.modalId).isVisible ?
           <div className='default_modal'>
             {this.props.title}
             {this.props.children}

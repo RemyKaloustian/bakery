@@ -4,11 +4,11 @@ import {
   SETTINGS_ADDRESS_REMOVAL_MODAL,
 } from '../../../utils/modalsConstants';
 import { ADD_MODAL, TOGGLE_MODAL, UPDATE_ON_VALIDATE_MODAL } from '../../../actions/constants';
-import { toNewDisplayClass } from './modalsReducerHelper';
+import { createModal } from './modalsReducerHelper';
 import debug from '../../../utils/debug';
 
 const modalsItems = [
-    { id: CART_FINALIZE_ORDER_MODAL, displayClass: MODAL_HIDDEN_CLASS },
+    
    ];
   
 const modalsReducer = (state = modalsItems, action) => {
@@ -17,7 +17,7 @@ const modalsReducer = (state = modalsItems, action) => {
 
     case ADD_MODAL: 
       debug.log(ADD_MODAL, action.modalId);
-      return [{ id: action.modalId, isVisible: false} , ...state];
+      return [ createModal(action) , ...state];
     
     case TOGGLE_MODAL:
       itemIndex = state.findIndex(x=> x.id === action.modalId);
@@ -37,7 +37,7 @@ const modalsReducer = (state = modalsItems, action) => {
         ...state.slice(itemIndex+1, state.length)];
 
     default:
-      //state = [];
+      // state = [];
       return state;
   }
 };

@@ -10,7 +10,12 @@ class OrdersPage extends React.Component {
       <div>
         Orders sir! {}
          {this.props.history.location.state !== undefined ?
-            <Alert/> : ''
+            <Alert
+              message={'Your order is confirmed!'}
+              buttonName={'Got it!'}
+            /> 
+            : 
+            ''
          }
          {this.props.orders.map(function(order, index){
             return <div>
