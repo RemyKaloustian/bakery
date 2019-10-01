@@ -1,5 +1,5 @@
 import React from 'react';
-import { toggleRemoveFromCart, changeQuantity} from '../../actions/actions';
+import { toggleRemoveFromCart, changeQuantity} from '../../actions/cartActions';
 import { connect } from 'react-redux';
 import { getDisplayName } from '../../utils/display';
 

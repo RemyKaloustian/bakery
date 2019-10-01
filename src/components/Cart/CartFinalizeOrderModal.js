@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import { addOrder, emptyCart, toggleModal } from '../../actions/actions';
+import { addOrder, emptyCart,  } from '../../actions/cartActions';
+import { toggleModal } from '../../actions/modalsActions';
 import { CART_FINALIZE_ORDER_MODAL } from '../../utils/modalsConstants';
 import Modal from '../GeneralComponents/Modal';
 import '../../style/modals.css';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addAddress } from '../actions/actions';
+import { addAddress } from '../actions/addressActions';
 
 class AddressPage extends React.Component {
   constructor(){

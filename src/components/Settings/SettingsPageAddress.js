@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { updateAddress, toggleModal, updateOnValidateModal, removeAddress } from "../../actions/actions";
+import { updateAddress, removeAddress } from "../../actions/addressActions";
+import { toggleModal, updateOnValidateModal } from "../../actions/modalsActions";
 import { MIN_ADDRESS_LENGTH } from "../../utils/constants";
 import { SETTINGS_ADDRESS_REMOVAL_MODAL } from "../../utils/modalsConstants";
 

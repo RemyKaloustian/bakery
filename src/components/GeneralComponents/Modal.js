@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import debug from '../../utils/debug';
-import { addModal, toggleModal } from '../../actions/actions';
+import { addModal, toggleModal } from '../../actions/modalsActions';
 
 class Modal extends React.Component {
   constructor(){

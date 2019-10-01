@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleAddressSelectionInOrder } from '../../actions/actions';
+import { toggleAddressSelectionInOrder } from '../../actions/addressActions';
 
 class CartAddress extends React.Component {
   constructor(props){

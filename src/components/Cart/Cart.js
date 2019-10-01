@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CartItem from './CartItem';
-import { cleanRemovedItems } from '../../actions/actions';
+import { cleanRemovedItems } from '../../actions/cartActions';
 import debug from '../../utils/debug';
 import NavbarMenu from '../GeneralComponents/NavbarMenu';
 import CartAddressSelection from './CartAddressSelection';

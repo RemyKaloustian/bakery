@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { addToCart } from '../../actions/actions';
+import { addToCart } from '../../actions/cartActions';
 import { connect } from 'react-redux';
 import { getDisplayName } from '../../utils/display';
 
