@@ -3,11 +3,13 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Alert from '../GeneralComponents/Alert';
 import OrderDetail from './OrderDetails';
+import Navbar from '../GeneralComponents/NavbarMenu';
 
 class OrdersPage extends React.Component {
   render() {
     return (
       <div>
+      <Navbar/>
         Orders sir! {}
          {this.props.history.location.state !== undefined ?
             <Alert
