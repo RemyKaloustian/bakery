@@ -5,13 +5,12 @@ import { MIN_ADDRESS_LENGTH } from "../../utils/constants";
 import { SETTINGS_ADDRESS_REMOVAL_MODAL } from "../../utils/modalsConstants";
 
 class SettingsPageAddress extends React.Component {
-  constructor(){
-    super();
-    this.state = { isOnEdit: false, editedAddress: '' };
+  constructor(props){
+    super(props);
+    this.state = { isOnEdit: false, editedAddress: this.props.address };
   }
 
   render() {
-    
     return (
       <div>
       {this.state.isOnEdit ?
@@ -48,7 +47,6 @@ class SettingsPageAddress extends React.Component {
   }
 
   removeAddress = () => {
-    console.log("REMOVIN ADDRESS M88888");
     this.props.toggleModal(SETTINGS_ADDRESS_REMOVAL_MODAL);
     let removeAddressObject = { action: ()=>{
       this.removinForReal();
@@ -57,7 +55,6 @@ class SettingsPageAddress extends React.Component {
   }
 
   removinForReal = () => {
-    console.log("REMOVIN FOR REAL MATEEEEEE");
     this.props.removeAddress(this.props.address);
   }
 }//class
