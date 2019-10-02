@@ -2,8 +2,7 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 
 //Read from db
-
-export const getFoodItems = (setFoodItems) => {
+export const getFoodItems = () => {
   const foodItems = [];
   var query = firebase.database().ref("/foodItems").orderByKey();
   query.once("value")
@@ -15,7 +14,6 @@ export const getFoodItems = (setFoodItems) => {
         var childData = childSnapshot.val();
         foodItems.push(childData);
     });
-    setFoodItems(foodItems);
   });
-
+  return foodItems;
 }

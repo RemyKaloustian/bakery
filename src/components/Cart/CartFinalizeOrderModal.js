@@ -31,7 +31,7 @@ class CartFinalizeOrderModal extends React.Component {
                 return item.isSelected ? <p>{item.address}</p> : null;
               })}
           </div>
-          <button onClick={()=> this.closeModal()}>
+          <button onClick={()=> this.props.toggleModal(this.modalId)}>
             Edit order
           </button>
           <Route render={({ history}) => (

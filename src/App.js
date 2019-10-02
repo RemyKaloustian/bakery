@@ -7,10 +7,8 @@ import Food from './components/Food';
 import AddressPage from './components/AddressPage';
 import OrdersPage from './components/Orders/OrdersPage';
 import SettingsPage from './components/Settings/SettingsPage';
-import { fireBaseInitialize } from './database/fireBaseInitialize';
 
 function App() {
-  fireBaseInitialize();
   return (
     <div className='App'>
       <Router>
