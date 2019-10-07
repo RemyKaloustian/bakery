@@ -1,8 +1,11 @@
-import { getFoodItems } from '../../../database/foodDatabase';
-import { fireBaseInitialize } from '../../../database/fireBaseInitialize';
+import debug from '../../../utils/debug';
 
-fireBaseInitialize();
-const defaultFood = getFoodItems();
+let defaultFood = [
+  {name:'croissant', details:'The classic pastry',},
+  {name:'brioche', details:'The classic pastry',},
+  {name:'pain-au-chocolat', details:'The classic pastry',},
+  {name:'croissant-au-nutella', details:'The classic pastry',},
+];
 
 const foodReducer = (state = defaultFood, action) => {
   switch (action.type) {
@@ -13,8 +16,10 @@ const foodReducer = (state = defaultFood, action) => {
     //Therefore the state never gets set to the defaultFood but to the last saved
     //value of the state. This is why we return defaultFood instead.
     default:
-      return defaultFood;
+      state = defaultFood;
+      return defaultFood ;
   }
 };
+
 
 export default foodReducer;

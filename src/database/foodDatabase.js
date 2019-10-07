@@ -1,5 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
+import debug from '../utils/debug';
 
 //Read from db
 export const getFoodItems = () => {
@@ -8,12 +9,9 @@ export const getFoodItems = () => {
   query.once("value")
     .then(function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
-        // key will be "ada" the first time and "alan" the second time
-        var key = childSnapshot.key;
-        // childData will be the actual contents of the child
         var childData = childSnapshot.val();
         foodItems.push(childData);
-    });
+      });
+      return foodItems;
   });
-  return foodItems;
 }
