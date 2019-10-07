@@ -16,8 +16,7 @@ const foodReducer = (state = defaultFood, action) => {
     //Therefore the state never gets set to the defaultFood but to the last saved
     //value of the state. This is why we return defaultFood instead.
     default:
-      state = defaultFood;
-      return defaultFood ;
+      return state ;
   }
 };
 
