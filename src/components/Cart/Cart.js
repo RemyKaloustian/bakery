@@ -12,6 +12,10 @@ class Cart extends React.Component {
     super();
     this.state = { hasRenderedOnce: false };
   }
+
+  componentWillUnmount(){
+    this.props.cleanRemovedItems();
+  }
   
   render() {
     if(!this.state.hasRenderedOnce){
